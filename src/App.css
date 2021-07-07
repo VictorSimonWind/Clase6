@@ -28,6 +28,18 @@
   color: #61dafb;
 }
 
+.Product_Container{
+  padding:20px;
+  background-color: darkred
+}
+.title_Product{
+  background-color: black;
+  color: white;
+  padding: 5px;
+
+  
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
