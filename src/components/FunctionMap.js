@@ -14,25 +14,27 @@ export default function FunctionMap() {
      */
     const mapProductos = (array) =>{
             /**Una Map puede recibir hasta 3 parametros*/
-                                //item - indice - array que esta iterando
-        let newArray = array.map((element,index,arrayEnProceso) =>{
-            let offerta = arrayEnProceso.filter(filter => filter.price > element.price)
-            return(
-                    {
-                        id:element.id,
-                        price:element.price,
-                        array: arrayEnProceso,
-                        tieneOferta: offerta.length < 1
-                                    ? 'tiene oferta'
-                                    : 'no tiene oferta'
+                             //item - indice(opcional) - array(opcional) que esta iterando
+   let newArray = array.map((item,index,conjuntoDeItems) =>{
+       let offerta = conjuntoDeItems.filter(filter => filter.price > item.price)
+       return(
+               {
+                   id:item.id,
+                   price:item.price,
+                   array: conjuntoDeItems,
+                   tieneOferta: offerta.length < 1
+                               ? 'tiene oferta'
+                               : 'no tiene oferta'
 
-                    }
-                    
-                  )
-        })
+               }
+               
+             )
+   })
 
         console.log(newArray);
         setProductos(newArray);
+
+       
     }
 
     
@@ -62,7 +64,7 @@ export default function FunctionMap() {
     return (
         <div>
             {productos.map(element =>{
-                    return(
+                    return( 
                         <Component1
                                 price={element.price}
                                 oferta={element.tieneOferta}
